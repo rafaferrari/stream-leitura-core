@@ -1,20 +1,29 @@
 # stream-leitura-core
 
-Servico responsavel pelo processamento de Streams.
+Serviço responsável pelo processamento de Streams.
 
 # Tecnologias utilizadas neste projeto
 
 - Java 8
 - Testes: Junit
-- Gestor de Logs: Log4J
 - Versionamento: Git
 - Gradle
 
 # Forma de Uso
 
 - Clonar este repositorio
-- Instalar [Gradle](https://gradle.org).
-- Para rodar os testes, executar: "clean test jacocoTestReport"
+- Instalar o [Gradle](https://gradle.org).
+- Gerar o arquivo .jar
+- Para rodar a aplicação:
+```bash
+java -jar stream-leitura-core.jar aAbBABacfe
+```
+- Para rodar os testes:
+
+```bash
+clean test jacocoTestReport
+```
+
 
 # About
 
