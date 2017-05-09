@@ -25,7 +25,8 @@ public class Processor implements Stream {
     public void process() {
         final List<String> chars = getCharsOfInput();
         final Integer consonantIndex = getFirstConsonantIndex(chars);
-        this.vowelIndex = getFirstVowelIndex(chars, consonantIndex);
+        this.vowelIndex = getFirstVowelIndex(chars, consonantIndex);        
+        System.out.println(String.format("Valor encontrado: %s - Índice: %s", input.charAt(vowelIndex), vowelIndex));
     }
 
     private List<String> getCharsOfInput() {
@@ -39,7 +40,7 @@ public class Processor implements Stream {
         final String consoante = chars.stream()
                 .filter(s -> !s.matches(VOWEL_MATCHER))
                 .findFirst()
-                .orElseThrow(IllegalStateException::new);
+                .orElseThrow(() -> new IllegalArgumentException("Favor informar um valor válido."));
         return chars.indexOf(consoante);
     }
 
@@ -48,7 +49,7 @@ public class Processor implements Stream {
                 .stream()
                 .filter(filtraVogalUnica(chars))
                 .findFirst()
-                .orElseThrow(IllegalStateException::new);
+                .orElseThrow(() -> new IllegalArgumentException("Favor informar um valor válido."));
         return chars.indexOf(vowel);
     }
 

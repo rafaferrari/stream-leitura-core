@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class ProcessorTest {
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void test_deve_retornar_erro_quando_nao_informar_consoante() {
         // GIVEN
         final String input = "AaEeIiOoUu";
@@ -19,7 +19,7 @@ public class ProcessorTest {
         // Catch the IllegalStateException
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void test_deve_retornar_erro_quando_nao_informar_vogal() {
         // GIVEN
         final String input = "BbCcDdEe";
@@ -32,7 +32,7 @@ public class ProcessorTest {
         // Catch the IllegalStateException
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void test_deve_retornar_erro_quando_achar_vogal_seguida_de_consoante_e_ela_se_repetir() {
         // GIVEN
         final String input = "aAbeBABacfe";

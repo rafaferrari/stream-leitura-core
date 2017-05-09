@@ -4,8 +4,17 @@ sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 jar {
-    baseName = 'campanha-core'
-    version =  '1.0.0'
+    manifest {
+        attributes "Implementation-Title": "Stream Leitura Core"
+        attributes "Implementation-Version": "1.0.0"
+        attributes "Main-Class" : "com.stream_processor_core.CommandLineProcessor"
+    }
+    doFirst {
+        from (configurations.runtime.resolve().collect { it.isDirectory() ? it : zipTree(it) }) {
+            include 'com/stream_processor_core/'
+            exclude 'META-INF/'
+        }
+    }
 }
 
 repositories {
@@ -13,5 +22,5 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.10'
+    testCompile("junit:junit:4.10")
 }
